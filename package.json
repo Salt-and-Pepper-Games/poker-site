@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Salt-and-Pepper-Games/poker-site/issues"
   },
-  "homepage": "https://github.com/Salt-and-Pepper-Games/poker-site#readme"
+  "homepage": "https://github.com/Salt-and-Pepper-Games/poker-site#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
