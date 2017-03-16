@@ -1,0 +1,13 @@
+{
+  "name": "poker-site",
+  "description": "a site where users can upload bots",
+  "main": "server.js",
+  "authors": [
+    "Salt and Pepper"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Salt-and-Pepper-Games/poker-site",
+  "dependencies": {
+    "angular": "^1.6.3"
+  }
+}
