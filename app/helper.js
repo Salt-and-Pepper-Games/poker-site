@@ -19,7 +19,26 @@ var getCardName = function(i) {
     return cardNum + " of " + suitNames[Math.floor(i/13)];
 }
 
+// return true if hand1 better than hand2
+// false if not
+// TODO: PUT THE ENTIRETY OF POKER HAND LOGIC IN HERE
+var compareHands = function(hand1, hand2, table) {
+    return true;
+}
+
+var objectLength = function(obj) {
+    var count = 0;
+    for(var p in obj) {
+        if(obj.hasOwnProperty(p)){
+            count++;
+        }
+    }
+    return count;
+}
+
 module.exports = {
-    shuffle : shuffle,
-    getCardName : getCardName
+    shuffle: shuffle,
+    getCardName: getCardName,
+    compareHands: compareHands,
+    objectLength: objectLength
 };

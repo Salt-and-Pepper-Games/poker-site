@@ -30,6 +30,8 @@ var gameCount = 0;
 // but for now 
 var pokerGame = createPokerGame();
 
+setInterval(pokerGame.update, 100);
+
 function createPokerGame() {
     var newGame = new Game();
     newGame.setId(gameCount++);
