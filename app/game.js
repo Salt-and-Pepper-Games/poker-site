@@ -87,7 +87,13 @@ var Game = function() {
         
             //if everyone else has called previously, table bet will be equal to current bet
             if (tableBet === player.bet) {
-                if (tableCards.length >= 3) {
+                if (tableCards.length === 0) {
+                    // the flop
+                    for (var i=0; i<3; i++) {
+                        tableCards.push(deck.pop());
+                    }
+                }
+                else if (tableCards.length >= 5) {
                     // betting is done, all cards are already dealt. game's over
                     endGame();
                 }
@@ -133,16 +139,17 @@ var Game = function() {
             }
             else if (raise === bet.fold) {
                 player.bet = bet.fold;
-                var allFolded = true;
+                var nonFoldedCount = 0;
+                
                 for (var i=0; i<turnOrder.length; i++) {
                     if (players[turnOrder[i]].bet != bet.fold) {
-                        allFolded = false;
-                        break;
+                        nonFoldedCount++;
                     }
                 }
-                if (allFolded) {
-                    // if everyone folded, no one gets to win
-                    resetGame();
+                // if only one person is left, they win
+                // endGame() will find that they won and even though it's not quite as efficient to do the whole process, it feels nicer
+                if (nonFoldedCount === 1) {
+                    endGame();
                 }
             }
             else {
@@ -221,6 +228,7 @@ var Game = function() {
     
     function resetGame() {
         deck = [];
+        tableCards = [];
         for (var i=0; i<52; i++) {
             deck.push(helper.getCardName(i));
         }
